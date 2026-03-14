@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Guide Pr\u00e9sident BV - Chapeau Rouge - Municipal 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#FAF8F3;--card:#FFFFFF;--gold:#C0AC5C;--gold-light:#E8E0C0;
+--blue:#1E3A5F;--blue-light:#2A4A73;--text:#1E3550;--text-sec:#5A6B7D;
+--border:#E0DCD4;--red:#C44040;--green:#4A8C5C;--orange:#C08040;
+--shadow:0 2px 8px rgba(30,53,80,0.06);--radius:12px;
+}
+html{font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%}
+body{padding-top:env(safe-area-inset-top);padding-bottom:calc(70px + env(safe-area-inset-bottom));min-height:100dvh;overflow-x:hidden}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-light) 100%);color:#fff;padding:16px 16px 12px;text-align:center;position:sticky;top:0;z-index:100;padding-top:calc(12px + env(safe-area-inset-top))}
+.header h1{font-size:1.1rem;font-weight:700;letter-spacing:-0.01em}
+.header p{font-size:0.75rem;opacity:0.8;margin-top:2px}
+
+/* TAB NAV */
+.tab-nav{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:calc(58px + env(safe-area-inset-top));z-index:99;scrollbar-width:none;gap:0}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-btn{flex:0 0 auto;padding:10px 14px;font-size:0.72rem;font-weight:600;color:var(--text-sec);background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:all 0.2s}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* SECTIONS */
+.section{display:none;padding:16px;padding-bottom:24px;animation:fadeIn 0.25s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:14px;box-shadow:var(--shadow)}
+.card h3{font-size:0.95rem;font-weight:700;color:var(--blue);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card p,.card li{font-size:0.85rem;line-height:1.55;color:var(--text)}
+
+/* ALERT BOXES */
+.alert{border-left:4px solid var(--red);background:#FDF5F5;padding:12px 14px;border-radius:0 var(--radius) var(--radius) 0;margin-bottom:14px}
+.alert.warn{border-left-color:var(--orange);background:#FDF8F0}
+.alert.ok{border-left-color:var(--green);background:#F2F8F4}
+.alert strong{font-size:0.85rem}
+.alert p,.alert li{font-size:0.82rem;color:var(--text)}
+
+/* CHECKLIST */
+.checklist{list-style:none;padding:0}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:0.85rem;line-height:1.5}
+.checklist li:last-child{border-bottom:none}
+.checklist input[type="checkbox"]{width:22px;height:22px;min-width:22px;margin-top:1px;accent-color:var(--gold);cursor:pointer;border-radius:4px}
+.checklist label{cursor:pointer;flex:1}
+.checklist input:checked+label{text-decoration:line-through;color:var(--text-sec)}
+
+/* EXPAND/COLLAPSE */
+details{margin-bottom:12px}
+details summary{font-weight:600;font-size:0.88rem;color:var(--blue);cursor:pointer;padding:10px 0;list-style:none;display:flex;align-items:center;gap:6px}
+details summary::before{content:'\25B6';font-size:0.65rem;transition:transform 0.2s}
+details[open] summary::before{transform:rotate(90deg)}
+details .detail-content{padding:8px 0 8px 18px;font-size:0.83rem;line-height:1.55}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:0.8rem}
+th{background:var(--blue);color:#fff;padding:8px 10px;text-align:left;font-weight:600;white-space:nowrap}
+td{padding:8px 10px;border-bottom:1px solid var(--border)}
+tr:nth-child(even){background:rgba(192,172,92,0.06)}
+
+/* PHONE BUTTONS */
+.phone-btn{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-size:0.85rem;font-weight:600;margin:4px 4px 4px 0}
+.phone-btn:active{opacity:0.8}
+
+/* BADGE */
+.badge{display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:20px;color:#fff;vertical-align:middle}
+.badge.red{background:var(--red)}.badge.orange{background:var(--orange)}.badge.green{background:var(--green)}.badge.blue{background:var(--blue)}
+
+/* SECTION TITLE */
+.section-time{font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:4px}
+.section-label{font-size:0.82rem;color:var(--text-sec);margin-bottom:16px}
+
+/* PROGRESS */
+.progress-bar{height:4px;background:var(--border);border-radius:2px;margin:8px 0 4px;overflow:hidden}
+.progress-fill{height:100%;background:var(--gold);border-radius:2px;transition:width 0.4s ease}
+.progress-text{font-size:0.72rem;color:var(--text-sec);text-align:right}
+
+/* SWIPE HINT */
+.swipe-hint{text-align:center;font-size:0.72rem;color:var(--text-sec);padding:8px 0;opacity:0.7}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>Pr\u00e9sident BV - Chapeau Rouge</h1>
+<p>Scrutin Municipal - 15 mars 2026 - Lyon 9e</p>
+</div>
+
+<nav class="tab-nav" id="tabNav">
+<button class="tab-btn active" data-tab="s0">7h30</button>
+<button class="tab-btn" data-tab="s1">8h00</button>
+<button class="tab-btn" data-tab="s2">Matin</button>
+<button class="tab-btn" data-tab="s3">12h</button>
+<button class="tab-btn" data-tab="s4">13h</button>
+<button class="tab-btn" data-tab="s5">Apr\u00e8s-midi</button>
+<button class="tab-btn" data-tab="s6">20h</button>
+<button class="tab-btn" data-tab="s7">D\u00e9pouil.</button>
+<button class="tab-btn" data-tab="s8">PV</button>
+<button class="tab-btn" data-tab="s9">Mairie</button>
+<button class="tab-btn" data-tab="s10">R\u00e9f.</button>
+</nav>
+
+<!-- ==================== 7H30 ==================== -->
+<div class="section active" id="s0">
+<div class="section-time">7h30</div>
+<div class="section-label">Arriv\u00e9e et mise en place</div>
+
+<div class="alert">
+<strong>Chapeau Rouge : maternelle + \u00e9l\u00e9mentaire</strong>
+<p>Le site a chang\u00e9 de configuration en 2026. 3 scrutins distincts sont organis\u00e9s simultan\u00e9ment sur le m\u00eame site, mais vous ne g\u00e9rez que le scrutin MUNICIPAL.</p>
+</div>
+
+<div class="card">
+<h3>Checklist d'arriv\u00e9e</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="c01"><label for="c01">Se pr\u00e9senter, prendre connaissance de la salle et du mat\u00e9riel</label></li>
+<li><input type="checkbox" id="c02"><label for="c02">V\u00e9rifier la pr\u00e9sence de l'employ\u00e9 de mairie</label></li>
+<li><input type="checkbox" id="c03"><label for="c03">Identifier les assesseurs pr\u00e9sents (au moins 2 obligatoires)</label></li>
+<li><input type="checkbox" id="c04"><label for="c04">D\u00e9signer le secr\u00e9taire parmi les \u00e9lecteurs de la commune (ou le plus jeune assesseur par d\u00e9faut)</label></li>
+<li><input type="checkbox" id="c05"><label for="c05">V\u00e9rifier les r\u00e9c\u00e9piss\u00e9s des assesseurs et d\u00e9l\u00e9gu\u00e9s</label></li>
+<li><input type="checkbox" id="c06"><label for="c06">V\u00e9rifier l'affichage obligatoire (listes candidates, pi\u00e8ces d'identit\u00e9, circulaires)</label></li>
+<li><input type="checkbox" id="c07"><label for="c07">V\u00e9rifier bulletins + enveloppes de scrutin en quantit\u00e9 suffisante</label></li>
+<li><input type="checkbox" id="c08"><label for="c08">V\u00e9rifier les isoloirs (nombre, rideaux, accessibilit\u00e9 PMR)</label></li>
+<li><input type="checkbox" id="c09"><label for="c09">V\u00e9rifier l'urne MUNICIPALE (transparente, vide, ferm\u00e9e \u00e0 cl\u00e9)</label></li>
+<li><input type="checkbox" id="c10"><label for="c10">V\u00e9rifier la liste d'\u00e9margement + registre des procurations</label></li>
+<li><input type="checkbox" id="c11"><label for="c11">V\u00e9rifier les 2 exemplaires vierges du proc\u00e8s-verbal</label></li>
+<li><input type="checkbox" id="c12"><label for="c12">V\u00e9rifier les enveloppes de centaine + grandes enveloppes (nuls, blancs)</label></li>
+<li><input type="checkbox" id="c13"><label for="c13">V\u00e9rifier l'accessibilit\u00e9 PMR (cheminement, isoloir adapt\u00e9, signal\u00e9tique claire)</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog0" style="width:0%"></div></div>
+<div class="progress-text" id="progText0">0/13</div>
+</div>
+
+<div class="card">
+<h3>Suppl\u00e9ants matin - Chapeau Rouge</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Nom</th><th>Scrutin</th><th>P\u00e9riode</th></tr>
+<tr><td>DELORME</td><td>Municipal</td><td>Matin</td></tr>
+<tr><td>MATHIEU</td><td>Municipal</td><td>Matin</td></tr>
+<tr><td>COMPAGNON</td><td>Municipal</td><td>Matin</td></tr>
+<tr><td>RAMOS</td><td>Municipal</td><td>Matin</td></tr>
+<tr><td>RASAMOELINA</td><td>Municipal</td><td>Matin</td></tr>
+</table>
+</div>
+</div>
+
+<div class="alert warn">
+<strong>Rappel cl\u00e9s de l'urne</strong>
+<p>Gardez une cl\u00e9 sur vous. Confiez l'autre \u00e0 un assesseur. Les deux d\u00e9tenteurs de cl\u00e9 doivent \u00eatre pr\u00e9sents \u00e0 la cl\u00f4ture (20h). En cas d'absence, confier la cl\u00e9 au suppl\u00e9ant.</p>
+</div>
+
+<p class="swipe-hint">Swipez ou appuyez sur les onglets pour naviguer</p>
+</div>
+
+<!-- ==================== 8H00 ==================== -->
+<div class="section" id="s1">
+<div class="section-time">8h00</div>
+<div class="section-label">Ouverture du scrutin</div>
+
+<div class="alert">
+<strong>OBLIGATOIRE : le pr\u00e9sident ou son suppl\u00e9ant + un assesseur doivent \u00eatre pr\u00e9sents en permanence.</strong>
+</div>
+
+<div class="card">
+<h3>Proc\u00e9dure d'ouverture</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="c20"><label for="c20">Constater publiquement l'heure d'ouverture du scrutin (8h00)</label></li>
+<li><input type="checkbox" id="c21"><label for="c21">Demander au 1er \u00e9lecteur pr\u00e9sent de constater que l'urne est VIDE</label></li>
+<li><input type="checkbox" id="c22"><label for="c22">Fermer l'urne \u00e0 cl\u00e9 (double v\u00e9rification)</label></li>
+<li><input type="checkbox" id="c23"><label for="c23">Garder une cl\u00e9, confier l'autre \u00e0 un assesseur</label></li>
+<li><input type="checkbox" id="c24"><label for="c24">Le vote peut commencer</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog1" style="width:0%"></div></div>
+<div class="progress-text" id="progText1">0/5</div>
+</div>
+
+<div class="card">
+<h3>Parcours de l'\u00e9lecteur</h3>
+<ol style="padding-left:18px;font-size:0.85rem;line-height:1.7">
+<li>L'\u00e9lecteur pr\u00e9sente sa pi\u00e8ce d'identit\u00e9 (+ \u00e9ventuellement carte \u00e9lectorale)</li>
+<li>V\u00e9rification sur la liste d'\u00e9margement par un assesseur</li>
+<li>L'\u00e9lecteur prend une enveloppe + les bulletins d'au moins 2 candidats</li>
+<li>Passage OBLIGATOIRE par l'isoloir</li>
+<li>L'\u00e9lecteur introduit l'enveloppe dans l'urne</li>
+<li>Le pr\u00e9sident (ou assesseur) dit : <em>"A vot\u00e9"</em></li>
+<li>L'\u00e9lecteur signe la liste d'\u00e9margement</li>
+</ol>
+</div>
+
+<div class="alert warn">
+<strong>France Identit\u00e9 num\u00e9rique = NON RECEVABLE</strong>
+<p>Seuls les titres physiques affich\u00e9s \u00e0 l'entr\u00e9e du BV sont accept\u00e9s (CNI, passeport, permis de conduire, permis de chasse, etc.)</p>
+</div>
+</div>
+
+<!-- ==================== MATIN ==================== -->
+<div class="section" id="s2">
+<div class="section-time">Matin</div>
+<div class="section-label">Gestion courante du vote (8h - 12h)</div>
+
+<div class="card">
+<h3>T\u00e2ches continues</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="c30"><label for="c30">Veiller au calme et \u00e0 l'ordre (aucune discussion partisane)</label></li>
+<li><input type="checkbox" id="c31"><label for="c31">Vider r\u00e9guli\u00e8rement les isoloirs (bulletins \u00e0 la poubelle)</label></li>
+<li><input type="checkbox" id="c32"><label for="c32">R\u00e9approvisionner la table en enveloppes et bulletins</label></li>
+<li><input type="checkbox" id="c33"><label for="c33">V\u00e9rifier que les piles de bulletins ne sont pas invers\u00e9es</label></li>
+<li><input type="checkbox" id="c34"><label for="c34">Appeler la mairie si participation horaire \u00e0 communiquer</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog2" style="width:0%"></div></div>
+<div class="progress-text" id="progText2">0/5</div>
+</div>
+
+<div class="card">
+<h3>Cas sp\u00e9ciaux fr\u00e9quents</h3>
+
+<details>
+<summary>Procuration</summary>
+<div class="detail-content">
+<p>Le <strong>mandant</strong> = celui qui donne procuration.<br>Le <strong>mandataire</strong> = celui qui vote \u00e0 sa place.</p>
+<p>La mention "donne procuration \u00e0..." doit figurer en face du nom du mandant (en rouge si manuscrite). Orienter vers l'employ\u00e9 de BV pour comptabiliser.</p>
+<p><strong>R\u00e8gles :</strong></p>
+<ul style="padding-left:16px;margin-top:4px">
+<li>Si le mandant se pr\u00e9sente AVANT le mandataire : il vote normalement</li>
+<li>Si le mandant se pr\u00e9sente APR\u00c8S le mandataire : il ne peut plus voter</li>
+<li>S'ils se pr\u00e9sentent ensemble : le mandant est prioritaire</li>
+</ul>
+<p style="margin-top:6px">Si la mention n'est pas indiqu\u00e9e, orienter vers l'employ\u00e9 de BV qui contacte la centralisation.</p>
+</div>
+</details>
+
+<details>
+<summary>\u00c9lecteur non inscrit sur la liste</summary>
+<div class="detail-content">
+<p>Orienter vers l'employ\u00e9 de BV qui v\u00e9rifie l'inscription dans l'arrondissement aupr\u00e8s de la centralisation.</p>
+<p>Si un \u00e9lecteur se pr\u00e9sente avec un <strong>jugement d'inscription du tribunal judiciaire</strong>, l'employ\u00e9 l'inscrira en rouge en fin de liste d'\u00e9margement. Le pr\u00e9sident pourra alors le faire voter.</p>
+</div>
+</details>
+
+<details>
+<summary>Refus de l'isoloir</summary>
+<div class="detail-content">
+<p>Le passage par l'isoloir est <strong>obligatoire</strong>. Demander \u00e0 l'\u00e9lecteur d'y aller. S'il persiste dans son refus, le consigner au proc\u00e8s-verbal.</p>
+</div>
+</details>
+
+<details>
+<summary>Personne handicap\u00e9e (art. L.64)</summary>
+<div class="detail-content">
+<p>L'\u00e9lecteur peut se faire assister physiquement par un \u00e9lecteur de son choix (dans l'isoloir et pour mettre le bulletin dans l'urne). L'accompagnant n'a pas besoin d'\u00eatre inscrit dans le m\u00eame BV ni la m\u00eame commune. Les chiens guides sont autoris\u00e9s. Abaisser l'urne si n\u00e9cessaire.</p>
+</div>
+</details>
+
+<details>
+<summary>\u00c9lecteur ne pouvant pas signer</summary>
+<div class="detail-content">
+<p>Inscrire la mention "Ne peut signer lui-m\u00eame" et faire signer la personne qui l'accompagne.</p>
+</div>
+</details>
+
+<details>
+<summary>Discordances d'\u00e9tat civil</summary>
+<div class="detail-content">
+<p>Suite \u00e0 la loi du 02/03/2022 sur le choix de nom issu de la filiation, des \u00e9carts peuvent exister entre la pi\u00e8ce d'identit\u00e9, la carte d'\u00e9lecteur et la liste d'\u00e9margement. Faire preuve de discernement.</p>
+</div>
+</details>
+
+<details>
+<summary>Cartes en retour</summary>
+<div class="detail-content">
+<p>Ce sont les cartes \u00e9lectorales revenues en mairie (non distribu\u00e9es). L'\u00e9lecteur qui retire sa carte pr\u00e9sente un justificatif d'identit\u00e9, signe l'\u00e9tat des cartes en retour, compl\u00e8te et signe le tableau des changements d'adresse.</p>
+</div>
+</details>
+</div>
+
+<div class="alert ok">
+<strong>Rappel neutralit\u00e9</strong>
+<p>Aucun message politique, tenue vestimentaire respectueuse, z\u00e9ro discussion partisane \u00e0 l'int\u00e9rieur du BV.</p>
+</div>
+</div>
+
+<!-- ==================== 12H ==================== -->
+<div class="section" id="s3">
+<div class="section-time">12h</div>
+<div class="section-label">Pause m\u00e9ridienne</div>
+
+<div class="card">
+<h3>Avant la pause</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="c40"><label for="c40">V\u00e9rifier qu'un assesseur reste en permanence au BV</label></li>
+<li><input type="checkbox" id="c41"><label for="c41">Organiser le roulement pour la pause d\u00e9jeuner</label></li>
+<li><input type="checkbox" id="c42"><label for="c42">V\u00e9rifier le stock de bulletins et enveloppes</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog3" style="width:0%"></div></div>
+<div class="progress-text" id="progText3">0/3</div>
+</div>
+
+<div class="alert warn">
+<strong>Le scrutin ne s'arr\u00eate JAMAIS</strong>
+<p>Le pr\u00e9sident ou son suppl\u00e9ant + au moins un assesseur doivent \u00eatre pr\u00e9sents \u00e0 tout moment. Organisez les pauses en roulement.</p>
+</div>
+</div>
+
+<!-- ==================== 13H ==================== -->
+<div class="section" id="s4">
+<div class="section-time">13h</div>
+<div class="section-label">Relev\u00e9 de l'apr\u00e8s-midi</div>
+
+<div class="card">
+<h3>Suppl\u00e9ant apr\u00e8s-midi - Chapeau Rouge</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Nom</th><th>Scrutin</th><th>P\u00e9riode</th></tr>
+<tr><td>PERRONCEL</td><td>Municipal</td><td>Apr\u00e8s-midi</td></tr>
+</table>
+</div>
+</div>
+
+<div class="card">
+<h3>Checklist relev\u00e9</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="c50"><label for="c50">Accueillir le/les suppl\u00e9ant(s) de l'apr\u00e8s-midi (v\u00e9rifier r\u00e9c\u00e9piss\u00e9)</label></li>
+<li><input type="checkbox" id="c51"><label for="c51">Briefer les suppl\u00e9ants sur la proc\u00e9dure</label></li>
+<li><input type="checkbox" id="c52"><label for="c52">Confier la cl\u00e9 au suppl\u00e9ant si le d\u00e9tenteur matin part</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog4" style="width:0%"></div></div>
+<div class="progress-text" id="progText4">0/3</div>
+</div>
+</div>
+
+<!-- ==================== APR\u00c8S-MIDI ==================== -->
+<div class="section" id="s5">
+<div class="section-time">Apr\u00e8s-midi</div>
+<div class="section-label">Gestion courante (13h - 20h)</div>
+
+<div class="card">
+<h3>T\u00e2ches continues</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="c60"><label for="c60">M\u00eames vigilances que le matin (isoloirs, bulletins, ordre)</label></li>
+<li><input type="checkbox" id="c61"><label for="c61">V\u00e9rifier que les deux d\u00e9tenteurs de cl\u00e9 seront pr\u00e9sents \u00e0 20h</label></li>
+<li><input type="checkbox" id="c62"><label for="c62">Anticiper l'organisation du d\u00e9pouillement (tables, scrutateurs)</label></li>
+<li><input type="checkbox" id="c63"><label for="c63">Pr\u00e9parer les feuilles de d\u00e9pouillement (2 par table)</label></li>
+<li><input type="checkbox" id="c64"><label for="c64">Identifier des scrutateurs parmi les \u00e9lecteurs pr\u00e9sents (4 par table min.)</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog5" style="width:0%"></div></div>
+<div class="progress-text" id="progText5">0/5</div>
+</div>
+
+<div class="alert warn">
+<strong>Anticiper les scrutateurs</strong>
+<p>Il faut au moins 4 scrutateurs par table de d\u00e9pouillement. Les suppl\u00e9ants d'assesseurs ou de d\u00e9l\u00e9gu\u00e9s peuvent \u00eatre scrutateurs. En cas d'insuffisance, les membres du BV peuvent d\u00e9pouiller (R.64 CE).</p>
+</div>
+</div>
+
+<!-- ==================== 20H ==================== -->
+<div class="section" id="s6">
+<div class="section-time">20h</div>
+<div class="section-label">Cl\u00f4ture du scrutin</div>
+
+<div class="alert">
+<strong>SEULS les \u00e9lecteurs dans la salle ou dans la file d'attente AVANT 20h peuvent encore voter.</strong>
+</div>
+
+<div class="card">
+<h3>Proc\u00e9dure de cl\u00f4ture</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="c70"><label for="c70">Fermer la porte du bureau (les \u00e9lecteurs pr\u00e9sents votent)</label></li>
+<li><input type="checkbox" id="c71"><label for="c71">Demander si un \u00e9lecteur dans la salle d\u00e9sire encore voter</label></li>
+<li><input type="checkbox" id="c72"><label for="c72">Constater PUBLIQUEMENT l'heure de cl\u00f4ture et la reporter au PV</label></li>
+<li><input type="checkbox" id="c73"><label for="c73">Aucun vote apr\u00e8s la d\u00e9claration de cl\u00f4ture</label></li>
+<li><input type="checkbox" id="c74"><label for="c74">Jeter TOUS les bulletins inutilis\u00e9s AVANT d'ouvrir l'urne</label></li>
+<li><input type="checkbox" id="c75"><label for="c75">Nettoyer les isoloirs</label></li>
+<li><input type="checkbox" id="c76"><label for="c76">Ouvrir la porte (le d\u00e9pouillement est public)</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog6" style="width:0%"></div></div>
+<div class="progress-text" id="progText6">0/7</div>
+</div>
+</div>
+
+<!-- ==================== D\u00c9POUILLEMENT ==================== -->
+<div class="section" id="s7">
+<div class="section-time">D\u00e9pouil.</div>
+<div class="section-label">Op\u00e9rations de d\u00e9pouillement</div>
+
+<div class="card">
+<h3>Pr\u00e9alable au d\u00e9pouillement</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="c80"><label for="c80">D\u00e9compter les \u00e9margements (liste principale + compl\u00e9mentaire)</label></li>
+<li><input type="checkbox" id="c81"><label for="c81">Membres du BV (pr\u00e9sident, assesseurs, secr\u00e9taire) signent la liste d'\u00e9margement</label></li>
+<li><input type="checkbox" id="c82"><label for="c82">Ouvrir l'urne et compter les enveloppes</label></li>
+<li><input type="checkbox" id="c83"><label for="c83">V\u00e9rifier : nombre d'enveloppes = nombre d'\u00e9margements (si \u00e9cart, recompter. Si persistant, noter au PV)</label></li>
+<li><input type="checkbox" id="c84"><label for="c84">Regrouper les enveloppes par paquets de 100</label></li>
+<li><input type="checkbox" id="c85"><label for="c85">Placer chaque paquet dans une enveloppe de centaine</label></li>
+<li><input type="checkbox" id="c86"><label for="c86">Inscrire le nombre sur la derni\u00e8re enveloppe non compl\u00e8te</label></li>
+<li><input type="checkbox" id="c87"><label for="c87">Signer et num\u00e9roter chaque enveloppe de centaine avec les assesseurs</label></li>
+<li><input type="checkbox" id="c88"><label for="c88">Replacer les enveloppes de centaine dans l'urne (visible par l'assembl\u00e9e)</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog7" style="width:0%"></div></div>
+<div class="progress-text" id="progText7">0/9</div>
+</div>
+
+<div class="alert">
+<strong>VIDER L'URNE \u00c0 LA MAIN ! Jamais sur la table.</strong>
+<p>Rassembler par tas de 10 enveloppes. Ne pas faire tomber d'enveloppes.</p>
+</div>
+
+<div class="card">
+<h3>Proc\u00e9dure de d\u00e9pouillement</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="c89"><label for="c89">Distribuer une enveloppe de centaine par table</label></li>
+<li><input type="checkbox" id="c90"><label for="c90">1er scrutateur : ouvre l'enveloppe, d\u00e9plie le bulletin</label></li>
+<li><input type="checkbox" id="c91"><label for="c91">2e scrutateur : lit le bulletin \u00e0 voix haute et intelligible</label></li>
+<li><input type="checkbox" id="c92"><label for="c92">3e et 4e scrutateurs : pointent sur les 2 feuilles de d\u00e9pouillement</label></li>
+<li><input type="checkbox" id="c93"><label for="c93">1 voix = 1 barre au stylo bille, sans ratures</label></li>
+<li><input type="checkbox" id="c94"><label for="c94">N'ouvrir la centaine suivante qu'apr\u00e8s avoir fini la pr\u00e9c\u00e9dente</label></li>
+<li><input type="checkbox" id="c95"><label for="c95">Totaliser par centaine, puis par table</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog7b" style="width:0%"></div></div>
+<div class="progress-text" id="progText7b">0/7</div>
+</div>
+
+<div class="alert warn">
+<strong>Apr\u00e8s la 1\u00e8re centaine : t\u00e9l\u00e9phoner les r\u00e9sultats partiels \u00e0 la mairie</strong>
+<p>V\u00e9rifier pour chaque centaine : TOTAL des voix + nuls + blancs = 100</p>
+</div>
+
+<div class="card">
+<h3>Contacts Mairie 9e</h3>
+<a href="tel:0478668072" class="phone-btn">04 78 66 80 72</a>
+<a href="tel:0764582765" class="phone-btn">07 64 58 27 65</a>
+</div>
+</div>
+
+<!-- ==================== PV ==================== -->
+<div class="section" id="s8">
+<div class="section-time">PV</div>
+<div class="section-label">Proc\u00e8s-verbal et r\u00e9sultats</div>
+
+<div class="card">
+<h3>Bulletins blancs et nuls</h3>
+<details>
+<summary>Qu'est-ce qu'un bulletin BLANC ?</summary>
+<div class="detail-content">
+<p>Bulletin vierge d\u00e9pourvu de tout nom, ou enveloppe vide. Pas comptabilis\u00e9 dans les suffrages exprim\u00e9s. Annex\u00e9 au PV et transmis en Pr\u00e9fecture.</p>
+</div>
+</details>
+<details>
+<summary>Qu'est-ce qu'un bulletin NUL ?</summary>
+<div class="detail-content">
+<p>Bulletin d\u00e9chir\u00e9, annot\u00e9, bulletin sans enveloppe, bulletin non r\u00e9glementaire, enveloppe contenant 2 bulletins de listes diff\u00e9rentes ou de scrutins diff\u00e9rents. Pas comptabilis\u00e9 dans les suffrages exprim\u00e9s. Annex\u00e9 au PV et transmis en Pr\u00e9fecture.</p>
+</div>
+</details>
+<details>
+<summary>Cas qui comptent comme 1 VOIX valide</summary>
+<div class="detail-content">
+<ul style="padding-left:16px">
+<li>2 bulletins de la m\u00eame liste = 1 voix</li>
+<li>1 bulletin + 1 profession de foi de la m\u00eame liste = 1 voix</li>
+<li>1 bulletin N&B sur papier blanc sans mention = 1 voix</li>
+</ul>
+</div>
+</details>
+<p style="margin-top:10px;font-size:0.83rem">Les nuls et blancs sont paraph\u00e9s/contresign\u00e9s par le bureau, class\u00e9s par cat\u00e9gorie, plac\u00e9s dans les grandes enveloppes d\u00e9di\u00e9es (\u00e9tiquet\u00e9es "NULS" et "BLANCS").</p>
+</div>
+
+<div class="card">
+<h3>Compl\u00e9ter le PV</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="cA0"><label for="cA0">Remplir les 2 exemplaires du PV</label></li>
+<li><input type="checkbox" id="cA1"><label for="cA1">Inscrire : nb d'\u00e9lecteurs inscrits</label></li>
+<li><input type="checkbox" id="cA2"><label for="cA2">Inscrire : nb de votants (d'apr\u00e8s \u00e9margements)</label></li>
+<li><input type="checkbox" id="cA3"><label for="cA3">Inscrire : nb de votes nuls</label></li>
+<li><input type="checkbox" id="cA4"><label for="cA4">Inscrire : nb de votes blancs</label></li>
+<li><input type="checkbox" id="cA5"><label for="cA5">Inscrire : nb de suffrages exprim\u00e9s</label></li>
+<li><input type="checkbox" id="cA6"><label for="cA6">Inscrire : suffrages obtenus par chaque liste</label></li>
+<li><input type="checkbox" id="cA7"><label for="cA7">Si \u00e9cart \u00e9margements / enveloppes : le mentionner au PV</label></li>
+<li><input type="checkbox" id="cA8"><label for="cA8">Proclamer les r\u00e9sultats \u00e0 voix haute et les afficher dans le BV</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog8" style="width:0%"></div></div>
+<div class="progress-text" id="progText8">0/9</div>
+</div>
+
+<div class="alert">
+<strong>T\u00e9l\u00e9phoner les r\u00e9sultats D\u00c9FINITIFS \u00e0 la mairie sans d\u00e9lai</strong>
+</div>
+
+<div class="card">
+<h3>Contacts Mairie 9e</h3>
+<a href="tel:0478668072" class="phone-btn">04 78 66 80 72</a>
+<a href="tel:0764582765" class="phone-btn">07 64 58 27 65</a>
+</div>
+</div>
+
+<!-- ==================== MAIRIE ==================== -->
+<div class="section" id="s9">
+<div class="section-time">Mairie</div>
+<div class="section-label">Retour \u00e0 la centralisation</div>
+
+<div class="card">
+<h3>Signatures obligatoires</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="cB0"><label for="cB0">Faire signer les feuilles de d\u00e9pouillement par les scrutateurs</label></li>
+<li><input type="checkbox" id="cB1"><label for="cB1">Faire signer les feuilles r\u00e9capitulatives par les scrutateurs</label></li>
+<li><input type="checkbox" id="cB2"><label for="cB2">Faire signer le PV par : pr\u00e9sident + assesseurs + secr\u00e9taire + d\u00e9l\u00e9gu\u00e9s</label></li>
+<li><input type="checkbox" id="cB3"><label for="cB3">Faire signer la liste d'\u00e9margement par : pr\u00e9sident + assesseurs + secr\u00e9taire</label></li>
+<li><input type="checkbox" id="cB4"><label for="cB4">Parapher/contresigner les bulletins nuls et blancs par les membres du BV</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog9a" style="width:0%"></div></div>
+<div class="progress-text" id="progText9a">0/5</div>
+</div>
+
+<div class="card">
+<h3>Cartable \u00e0 apporter en mairie</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="cC0"><label for="cC0">Le cartable</label></li>
+<li><input type="checkbox" id="cC1"><label for="cC1">Les cl\u00e9s de l'urne</label></li>
+<li><input type="checkbox" id="cC2"><label for="cC2">Les listes d'\u00e9margement sign\u00e9es</label></li>
+<li><input type="checkbox" id="cC3"><label for="cC3">Les feuilles de d\u00e9pouillement</label></li>
+<li><input type="checkbox" id="cC4"><label for="cC4">Les 2 proc\u00e8s-verbaux</label></li>
+<li><input type="checkbox" id="cC5"><label for="cC5">L'enveloppe des bulletins nuls</label></li>
+<li><input type="checkbox" id="cC6"><label for="cC6">L'enveloppe des bulletins blancs</label></li>
+<li><input type="checkbox" id="cC7"><label for="cC7">L'\u00e9tat des cartes en retour</label></li>
+<li><input type="checkbox" id="cC8"><label for="cC8">Les cartes \u00e9lectorales revenues en mairie</label></li>
+<li><input type="checkbox" id="cC9"><label for="cC9">La liste des procurations</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog9b" style="width:0%"></div></div>
+<div class="progress-text" id="progText9b">0/10</div>
+</div>
+
+<div class="alert">
+<strong>Rester en mairie jusqu'\u00e0 la signature du PV centralisateur.</strong>
+<p>Le Pr\u00e9sident et l'employ\u00e9 de BV restent lors du contr\u00f4le du cartable.</p>
+</div>
+
+<div class="card">
+<h3>Checklist finale</h3>
+<ul class="checklist">
+<li><input type="checkbox" id="cD0"><label for="cD0">PV centralisateur sign\u00e9 par le pr\u00e9sident</label></li>
+<li><input type="checkbox" id="cD1"><label for="cD1">Cartable contr\u00f4l\u00e9 et valid\u00e9</label></li>
+<li><input type="checkbox" id="cD2"><label for="cD2">Ranger le bureau avant de partir</label></li>
+</ul>
+<div class="progress-bar"><div class="progress-fill" id="prog9c" style="width:0%"></div></div>
+<div class="progress-text" id="progText9c">0/3</div>
+</div>
+</div>
+
+<!-- ==================== R\u00c9F\u00c9RENCES ==================== -->
+<div class="section" id="s10">
+<div class="section-time">R\u00e9f.</div>
+<div class="section-label">R\u00e9f\u00e9rences et aide-m\u00e9moire</div>
+
+<div class="card">
+<h3>Qui signe quoi ?</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Document</th><th>Pr\u00e9s.</th><th>Assess.</th><th>Secr.</th><th>D\u00e9l\u00e9g.</th><th>Scrut.</th></tr>
+<tr><td>PV</td><td>\u2713</td><td>\u2713</td><td>\u2713</td><td>\u2713</td><td>\u2713</td></tr>
+<tr><td>PV centralisateur</td><td>\u2713</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Liste d'\u00e9margement</td><td>\u2713</td><td>\u2713</td><td>\u2713</td><td></td><td></td></tr>
+<tr><td>Feuilles d\u00e9pouillement</td><td></td><td></td><td></td><td></td><td>\u2713</td></tr>
+<tr><td>Feuilles r\u00e9capitulatives</td><td></td><td></td><td></td><td></td><td>\u2713</td></tr>
+<tr><td>Enveloppes de centaine</td><td>\u2713</td><td>\u2713</td><td></td><td></td><td></td></tr>
+<tr><td>Bulletins nuls</td><td>\u2713</td><td>\u2713</td><td>\u2713</td><td></td><td></td></tr>
+<tr><td>Enveloppes des nuls</td><td>\u2713</td><td>\u2713</td><td>\u2713</td><td></td><td></td></tr>
+<tr><td>Bulletins blancs</td><td>\u2713</td><td>\u2713</td><td>\u2713</td><td></td><td></td></tr>
+<tr><td>Enveloppes des blancs</td><td>\u2713</td><td>\u2713</td><td>\u2713</td><td></td><td></td></tr>
+</table>
+</div>
+</div>
+
+<div class="card">
+<h3>Composition du BV</h3>
+<ul style="font-size:0.85rem;padding-left:18px;line-height:1.7">
+<li><strong>Pr\u00e9sident</strong> : vous. Pr\u00e9sent d\u00e8s 7h30. Cl\u00e9 de l'urne. Police de l'assembl\u00e9e</li>
+<li><strong>Assesseurs</strong> (min. 2) : v\u00e9rifient identit\u00e9, font signer, signent le PV. D\u00e9sign\u00e9s par les listes ou par le maire</li>
+<li><strong>Secr\u00e9taire</strong> : choisi par le pr\u00e9sident et les assesseurs parmi les \u00e9lecteurs (ou le plus jeune assesseur par d\u00e9faut). Voix consultative uniquement</li>
+<li><strong>Employ\u00e9 de mairie</strong> : PAS membre du BV. Aide technique, recherche \u00e9lecteurs, lien centralisation. Peut \u00eatre secr\u00e9taire si \u00e9lecteur de la commune</li>
+<li><strong>D\u00e9l\u00e9gu\u00e9s</strong> : r\u00f4le d'observation uniquement. R\u00e9c\u00e9piss\u00e9 obligatoire. Peuvent exiger une inscription au PV. Ne d\u00e9lib\u00e8rent pas</li>
+<li><strong>Scrutateurs</strong> (min. 4/table) : d\u00e9pouillent. Pas group\u00e9s par liste. Assis. Doivent savoir lire et \u00e9crire le fran\u00e7ais</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>CCOV (Commission de contr\u00f4le)</h3>
+<p style="font-size:0.85rem;line-height:1.6">Composition : 1 magistrat (pr\u00e9sident), 1 magistrat/ancien magistrat, 1 fonctionnaire d\u00e9sign\u00e9 par le Pr\u00e9fet. Veille \u00e0 la r\u00e9gularit\u00e9. Peut acc\u00e9der au BV \u00e0 tout moment. Le pr\u00e9sident du BV doit fournir tout renseignement demand\u00e9.</p>
+</div>
+
+<div class="card">
+<h3>Motifs de nullit\u00e9 - Scrutin municipal</h3>
+<p style="font-size:0.83rem;line-height:1.6;margin-bottom:8px">17 motifs sp\u00e9cifiques au scrutin municipal, dont :</p>
+<ul style="font-size:0.83rem;padding-left:18px;line-height:1.6">
+<li>Absence de nationalit\u00e9 pour candidat ressortissant europ\u00e9en (n\u00b03)</li>
+<li>D\u00e9signation de la liste des candidats au conseil municipal et la liste des si\u00e8ges de conseiller communautaire (n\u00b016) - non recevable \u00e0 Lyon (SUD M\u00e9tropole)</li>
+</ul>
+<p style="font-size:0.82rem;margin-top:8px;color:var(--text-sec)">Document complet des cas de nullit\u00e9 distribu\u00e9 sur chaque table de d\u00e9pouillement.</p>
+</div>
+
+<div class="card">
+<h3>Contacts Mairie 9e</h3>
+<a href="tel:0478668072" class="phone-btn">04 78 66 80 72</a>
+<a href="tel:0764582765" class="phone-btn">07 64 58 27 65</a>
+<p style="font-size:0.8rem;color:var(--text-sec);margin-top:10px">En cas de diff\u00e9rend non r\u00e9solu par le bureau, appeler la mairie.</p>
+</div>
+
+<div class="card">
+<h3>Le saviez-vous ?</h3>
+<ul style="font-size:0.83rem;padding-left:18px;line-height:1.7">
+<li>Lyon 2026 : 3 scrutins simultan\u00e9s (arrondissement, municipal, m\u00e9tropolitain) - loi du 11 ao\u00fbt 2025</li>
+<li>Chaque scrutin a sa couleur de parcours et ses propres motifs de nullit\u00e9</li>
+<li>\u00c9lecteurs europ\u00e9ens : ne votent PAS au scrutin m\u00e9tropolitain</li>
+<li>Les bulletins d\u00e9pouill\u00e9s sont jet\u00e9s SAUF les nuls et les blancs</li>
+<li>Les enveloppes de scrutin vid\u00e9es sont remises par paquets de 100, \u00e9lastiqu\u00e9es, dans l'urne</li>
+</ul>
+</div>
+</div>
+
+<script>
+// Tab navigation
+const tabs=document.querySelectorAll('.tab-btn');
+const sections=document.querySelectorAll('.section');
+function switchTab(id){
+sections.forEach(s=>s.classList.remove('active'));
+tabs.forEach(t=>t.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelector(`[data-tab="${id}"]`).classList.add('active');
+document.querySelector(`[data-tab="${id}"]`).scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+tabs.forEach(t=>t.addEventListener('click',()=>switchTab(t.dataset.tab)));
+
+// Swipe
+let sx=0,sy=0;const tabIds=[...tabs].map(t=>t.dataset.tab);
+document.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+document.addEventListener('touchend',e=>{
+const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
+if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){
+const cur=tabIds.findIndex(id=>document.getElementById(id).classList.contains('active'));
+if(dx<0&&cur<tabIds.length-1)switchTab(tabIds[cur+1]);
+if(dx>0&&cur>0)switchTab(tabIds[cur-1]);
+}
+},{passive:true});
+
+// Checkbox persistence
+const KEY='bv26';
+function loadChecks(){try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');Object.keys(d).forEach(id=>{const el=document.getElementById(id);if(el)el.checked=d[id]})}catch(e){}}
+function saveChecks(){const d={};document.querySelectorAll('.checklist input[type="checkbox"]').forEach(c=>d[c.id]=c.checked);try{localStorage.setItem(KEY,JSON.stringify(d))}catch(e){}}
+loadChecks();
+document.querySelectorAll('.checklist input[type="checkbox"]').forEach(c=>c.addEventListener('change',()=>{saveChecks();updateProgress()}));
+
+// Progress bars
+function updateProgress(){
+document.querySelectorAll('.card').forEach(card=>{
+const checks=card.querySelectorAll('.checklist input[type="checkbox"]');
+if(!checks.length)return;
+const bar=card.querySelector('.progress-fill');
+const txt=card.querySelector('.progress-text');
+if(!bar||!txt)return;
+const done=[...checks].filter(c=>c.checked).length;
+const pct=Math.round(done/checks.length*100);
+bar.style.width=pct+'%';
+txt.textContent=done+'/'+checks.length;
+});
+}
+updateProgress();
+</script>
+</body>
+</html>
