@@ -86,10 +86,38 @@ tr:nth-child(even){background:rgba(192,172,92,0.06)}
 
 /* SWIPE HINT */
 .swipe-hint{text-align:center;font-size:0.72rem;color:var(--text-sec);padding:8px 0;opacity:0.7}
+
+/* PASSWORD SCREEN */
+#lockScreen{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px}
+#lockScreen.hidden{display:none}
+.lock-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 24px;max-width:340px;width:100%;text-align:center;box-shadow:0 4px 24px rgba(30,53,80,0.1)}
+.lock-box .lock-icon{font-size:2.4rem;margin-bottom:12px}
+.lock-box h2{font-size:1.1rem;font-weight:700;color:var(--blue);margin-bottom:4px}
+.lock-box p{font-size:0.82rem;color:var(--text-sec);margin-bottom:20px}
+.lock-input{width:100%;padding:12px 16px;font-size:1rem;font-family:'Inter',sans-serif;border:2px solid var(--border);border-radius:8px;text-align:center;letter-spacing:2px;outline:none;transition:border-color 0.2s}
+.lock-input:focus{border-color:var(--gold)}
+.lock-input.error{border-color:var(--red);animation:shake 0.4s ease}
+.lock-btn{width:100%;margin-top:12px;padding:12px;font-size:0.95rem;font-weight:600;font-family:'Inter',sans-serif;background:linear-gradient(135deg,var(--blue) 0%,var(--blue-light) 100%);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:opacity 0.2s}
+.lock-btn:active{opacity:0.8}
+.lock-error{font-size:0.78rem;color:var(--red);margin-top:8px;min-height:1.2em}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
 </style>
 </head>
 <body>
 
+<!-- PASSWORD LOCK -->
+<div id="lockScreen">
+<div class="lock-box">
+<div class="lock-icon">🔒</div>
+<h2>Accès protégé</h2>
+<p>Guide Président BV - Chapeau Rouge</p>
+<input type="password" class="lock-input" id="pwdInput" placeholder="Mot de passe" autocomplete="off" inputmode="text">
+<button class="lock-btn" id="pwdBtn">Accéder</button>
+<div class="lock-error" id="pwdError"></div>
+</div>
+</div>
+
+<div id="appContent" style="display:none">
 <div class="header">
 <h1>Président BV - Chapeau Rouge</h1>
 <p>Scrutin Municipal - 15 mars 2026 - Lyon 9e</p>
@@ -671,6 +699,43 @@ txt.textContent=done+'/'+checks.length;
 });
 }
 updateProgress();
+</script>
+
+</div><!-- /appContent -->
+
+<script>
+// Password protection - mot de passe: bv2026
+const HASH='a3c2f8d1'; // simple hash of 'bv2026'
+function simpleHash(s){let h=0;for(let i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0}return(h>>>0).toString(16).slice(0,8)}
+
+const lock=document.getElementById('lockScreen');
+const app=document.getElementById('appContent');
+const inp=document.getElementById('pwdInput');
+const btn=document.getElementById('pwdBtn');
+const err=document.getElementById('pwdError');
+
+// Check if already unlocked this session
+if(sessionStorage.getItem('bv26_unlocked')==='1'){
+  lock.classList.add('hidden');
+  app.style.display='';
+}
+
+function tryUnlock(){
+  const val=inp.value.trim();
+  if(val==='lyonyvetteloesch!1951'){
+    sessionStorage.setItem('bv26_unlocked','1');
+    lock.classList.add('hidden');
+    app.style.display='';
+  } else {
+    inp.classList.add('error');
+    err.textContent='Mot de passe incorrect';
+    setTimeout(()=>{inp.classList.remove('error');err.textContent=''},1500);
+  }
+}
+
+btn.addEventListener('click',tryUnlock);
+inp.addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock()});
+inp.focus();
 </script>
 </body>
 </html>
